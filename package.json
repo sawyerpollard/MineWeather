@@ -1,0 +1,12 @@
+{
+  "name": "minecraft-weather-new-tab",
+  "private": true,
+  "version": "0.1",
+  "description": "",
+  "author": "Sawyer Pollard",
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}

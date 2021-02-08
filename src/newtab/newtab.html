@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>New Tab</title>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="newtab.css" />
+
+    <script type="module" src="../lib/Condition.js"></script>
+    <script type="module" src="../lib/WeatherImage.js"></script>
+    <script type="module" src="../lib/position.js"></script>
+    <script type="module" src="../lib/weather.js"></script>
+    <script type="module" src="../lib/handleResize.js"></script>
+    <script type="module" src="newtab.js"></script>
+</head>
+
+<body>
+    <div id="loading-pane">
+        <div class="spinner">
+            <div class="spinner-center"></div>
+        </div>
+
+        <div id="help">
+            <p>Click the location icon on the right side of the search bar.</p>
+            <p>Follow its instructions to enable weather access.</p>
+        </div>
+    </div>
+
+    <img id="fullscreen-image" />
+
+    <div id="weather-container">
+        <div>
+            <h1 id="description">It's like . . . out.</h1>
+        </div>
+        <div>
+            <h2 id="conditions">. . .</h2>
+        </div>
+    </div>
+
+    <a id="attribution" href="#" target="_blank" rel="noopener noreferrer"></a>
+    <div id="last-updated">Last updated ...</div>
+</body>
+
+</html>
