@@ -72,6 +72,7 @@ async function loadNewTab() {
         Weather.getDewPoint(weather),
         Weather.isSnowing(weather),
         Weather.isRaining(weather),
+        units,
     );
 
     const weatherImage = new WeatherImage(imageObject, condition);

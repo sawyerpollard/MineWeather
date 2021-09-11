@@ -1,5 +1,10 @@
 export default class Condition {
-    static get(temperature, dewPoint, isSnowing, isRaining) {
+    static get(temperature, dewPoint, isSnowing, isRaining, units) {
+        if (units === 'metric') {
+            // eslint-disable-next-line no-param-reassign
+            temperature = this.celciusToImperial(temperature);
+        }
+
         if (isSnowing) return Condition.SNOWING;
 
         if (isRaining) return Condition.RAINING;
@@ -51,5 +56,10 @@ export default class Condition {
 
     static get TROPICAL() {
         return 'tropical';
+    }
+
+    static celciusToImperial(c) {
+        const f = c * (9 / 5) + 32;
+        return f;
     }
 }
