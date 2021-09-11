@@ -5,7 +5,7 @@ This Chrome Extension dynamically adjusts the New Tab page based on the current 
 **Displays a scene from the video game Minecraft depending on local weather conditions.**  
 **Provides temperature and other weather information with an emphasis on aesthetics.**
 
-![Example of new tab page](https://i.imgur.com/v7FSEfY.png)
+![Example of new tab page](https://user-images.githubusercontent.com/19192015/132961674-ee25a836-16df-4190-a855-0110451fc43d.png)
 
 ## Features:
 - Unique images for 8 different weather conditions
@@ -25,6 +25,6 @@ This Chrome Extension dynamically adjusts the New Tab page based on the current 
 - Geolocation API
 
 ### Extension popup designed with Tailwind:
-![Extension popup](https://i.imgur.com/lNWqxuJ.png)
+![Extension popup](https://user-images.githubusercontent.com/19192015/132961679-eeb3ad7c-adc8-44f0-97f4-6c2bafcd5f8f.png)
 
 *Included images are screenshots of Minecraft. Attributions are located under the Minecraft.js file.*
