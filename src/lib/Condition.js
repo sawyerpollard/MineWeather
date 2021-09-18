@@ -3,8 +3,8 @@
 export default class Condition {
     static get(temperature, dewPoint, isSnowing, isRaining, units) {
         if (units === 'metric') {
-            temperature = this.celciusToImperial(temperature);
-            dewPoint = this.celciusToImperial(dewPoint);
+            temperature = this.celsiusToImperial(temperature);
+            dewPoint = this.celsiusToImperial(dewPoint);
         }
 
         if (isSnowing) return Condition.SNOWING;
@@ -60,7 +60,7 @@ export default class Condition {
         return 'tropical';
     }
 
-    static celciusToImperial(c) {
+    static celsiusToImperial(c) {
         const f = c * (9 / 5) + 32;
         return f;
     }
