@@ -1,8 +1,10 @@
+/* eslint-disable no-param-reassign */
+
 export default class Condition {
     static get(temperature, dewPoint, isSnowing, isRaining, units) {
         if (units === 'metric') {
-            // eslint-disable-next-line no-param-reassign
             temperature = this.celciusToImperial(temperature);
+            dewPoint = this.celciusToImperial(dewPoint);
         }
 
         if (isSnowing) return Condition.SNOWING;
