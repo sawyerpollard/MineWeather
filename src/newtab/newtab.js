@@ -23,20 +23,20 @@ function createElements(imageCaption, imagePath, imageAuthor, imageLink, tempera
     descriptionElement.innerHTML = imageCaption;
 
     const weatherElement = document.querySelector('#conditions');
-    weatherElement.innerHTML = `${Math.round(temperature)}\u00B0 and ${description}`;
+    weatherElement.innerHTML = `${Math.round(temperature)}\u00B0 et ${description}`;
 
     const attributionElement = document.querySelector('#attribution');
-    attributionElement.innerHTML = `By ${imageAuthor}`;
+    attributionElement.innerHTML = `Par ${imageAuthor}`;
     attributionElement.href = imageLink;
 
     const lastUpdatedElement = document.querySelector('#last-updated');
     let lastUpdatedText;
     if (cacheLifetime < 2) {
-        lastUpdatedText = 'Last updated moments ago.';
+        lastUpdatedText = 'Mis à jour il y a quelques instants.';
     } else if (cacheLifetime < 120) {
-        lastUpdatedText = `Last updated ${Math.floor(cacheLifetime)} minutes ago.`;
+        lastUpdatedText = `Mis à jour il y a ${Math.floor(cacheLifetime)} minutes.`;
     } else {
-        lastUpdatedText = `Last updated ${Math.floor(cacheLifetime / 60)} hours ago.`;
+        lastUpdatedText = `Mis à jour il y a ${Math.floor(cacheLifetime / 60)} heures.`;
     }
     lastUpdatedElement.innerHTML = lastUpdatedText;
 

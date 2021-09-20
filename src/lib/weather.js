@@ -4,7 +4,7 @@ import getStorageItem from './storageUtils.js';
 
 async function getCurrentWeather(latitude, longitude, units, apiKey) {
     const base = 'https://api.openweathermap.org';
-    const endpoint = new URL(`/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`, base);
+    const endpoint = new URL(`/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${units}&lang=fr&appid=${apiKey}`, base);
 
     console.log('Weather API called.');
     const response = await fetch(endpoint);
