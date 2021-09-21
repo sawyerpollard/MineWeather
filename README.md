@@ -26,6 +26,15 @@ This Chrome Extension dynamically adjusts the New Tab page based on the current 
 - Caching Strategies w/ Storage API
 - Geolocation API
 
+## Building:
+If you are installing from the source code instead of through the Chrome Web Store, you will need to add a file at src/apiKey.js with the following syntax:
+
+```
+var apiKey = "################################";
+export default apiKey;
+```
+You can get your API key by creating an account at https://openweathermap.org/api and verifying your email.
+
 ### Extension popup designed with Tailwind:
 ![Extension popup](https://user-images.githubusercontent.com/19192015/132961679-eeb3ad7c-adc8-44f0-97f4-6c2bafcd5f8f.png)
 
