@@ -11,6 +11,25 @@ import imageObject from '../image_objects/Minecraft.js';
 
 import apiKey from '../apiKey.js';
 
+const { language } = await getStorageItem('language');
+
+var loc = JSON.parse($.getJSON({'url': "../localization/localization.json", 'async': false}).responseText);
+
+var tempJson = null;
+switch(language){
+    case 'english':
+        tempJson = loc.english;
+        break;
+    case 'french':
+        tempJson = loc.french;
+        break;
+    default:
+        tempJson = loc.english;
+        break;
+}
+
+const json = tempJson;
+
 // eslint-disable-next-line max-len
 function createElements(imageCaption, imagePath, imageAuthor, imageLink, temperature, description, cacheLifetime) {
     const fullscreenImage = document.querySelector('#fullscreen-image');
@@ -23,20 +42,20 @@ function createElements(imageCaption, imagePath, imageAuthor, imageLink, tempera
     descriptionElement.innerHTML = imageCaption;
 
     const weatherElement = document.querySelector('#conditions');
-    weatherElement.innerHTML = `${Math.round(temperature)}\u00B0 and ${description}`;
+    weatherElement.innerHTML = `${Math.round(temperature)}\u00B0`+json.and+`${description}`;
 
     const attributionElement = document.querySelector('#attribution');
-    attributionElement.innerHTML = `By ${imageAuthor}`;
+    attributionElement.innerHTML = json.by + `${imageAuthor}`;
     attributionElement.href = imageLink;
 
     const lastUpdatedElement = document.querySelector('#last-updated');
     let lastUpdatedText;
     if (cacheLifetime < 2) {
-        lastUpdatedText = 'Last updated moments ago.';
+        lastUpdatedText = json.update_moments;
     } else if (cacheLifetime < 120) {
-        lastUpdatedText = `Last updated ${Math.floor(cacheLifetime)} minutes ago.`;
+        lastUpdatedText = json.update_before_time + `${Math.floor(cacheLifetime)}` + json.update_after_time_minutes;
     } else {
-        lastUpdatedText = `Last updated ${Math.floor(cacheLifetime / 60)} hours ago.`;
+        lastUpdatedText = json.update_before_time + `${Math.floor(cacheLifetime / 60)}` + update_after_time_hours;
     }
     lastUpdatedElement.innerHTML = lastUpdatedText;
 
@@ -54,6 +73,8 @@ async function loadNewTab() {
 
     const position = await Position.getCachedPosition(TTL);
     const { coords } = position;
+
+    document.title = json.new_tab;
 
     clearTimeout(helpTimeout);
     helpText.style.opacity = 0;

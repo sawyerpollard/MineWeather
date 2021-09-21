@@ -12,7 +12,7 @@
 
 <body class="bg-gradient-to-t from-green-600 to-green-100 select-none">
     <div class="p-3">
-        <h1 class="mb-3 text-xl text-center block lowercase font-extrabold text-green-600">Minecraft Weather</h1>
+        <h1 class="mb-3 text-xl text-center block font-extrabold text-green-600">Minecraft Weather</h1>
         <section class="mb-3 bg-white p-4 rounded-lg">
             <h2 class="text-base leading-4 font-medium text-green-900">Temperature Unit</h2>
             <div class="mt-4 space-y-4">
@@ -28,6 +28,25 @@
                         class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 cursor-pointer">
                     <label for="celsius" class="ml-3 block text-sm font-medium text-gray-700 cursor-pointer">
                         Celsius
+                    </label>
+                </div>
+            </div>
+        </section>
+        <section class="mb-3 bg-white p-4 rounded-lg">
+            <h2 class="text-base leading-4 font-medium text-green-900">Language</h2>
+            <div class="mt-4 space-y-4">
+                <div class="flex items-center">
+                    <input id="english" value="english" name="language" type="radio"
+                        class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 cursor-pointer" checked>
+                    <label for="english" class="ml-3 block text-sm font-medium text-gray-700 cursor-pointer">
+                        English
+                    </label>
+                </div>
+                <div class="flex items-center">
+                    <input id="french" value="french" name="language" type="radio"
+                        class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 cursor-pointer">
+                    <label for="french" class="ml-3 block text-sm font-medium text-gray-700 cursor-pointer">
+                        Français
                     </label>
                 </div>
             </div>

@@ -30,9 +30,11 @@ chrome.runtime.onInstalled.addListener(async () => {
     console.log('Installing ...');
 
     const units = 'imperial';
+    const language = 'english';
     const TTL = 30;
 
     chrome.storage.local.set({ units });
+    chrome.storage.local.set({ language });
     chrome.storage.local.set({ TTL });
 
     chrome.alarms.create({ periodInMinutes: TTL });
@@ -43,6 +45,7 @@ chrome.runtime.onInstalled.addListener(async () => {
 chrome.alarms.onAlarm.addListener(async () => {
     console.log('Beginning background weather refresh ...');
     const { units } = await getStorageItem('units');
+    const { language } = await getStorageItem('language');
 
     const { apiKey } = await getStorageItem('apiKey');
     if (apiKey === undefined) {

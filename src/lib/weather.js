@@ -2,9 +2,28 @@
 
 import getStorageItem from './storageUtils.js';
 
+const { language } = await getStorageItem('language');
+
+var loc = JSON.parse($.getJSON({'url': "../localization/localization.json", 'async': false}).responseText);
+
+var tempJson = null;
+switch(language){
+    case 'english':
+        tempJson = loc.english;
+        break;
+    case 'french':
+        tempJson = loc.french;
+        break;
+    default:
+        tempJson = loc.english;
+        break;
+}
+const json = tempJson;
+
+
 async function getCurrentWeather(latitude, longitude, units, apiKey) {
     const base = 'https://api.openweathermap.org';
-    const endpoint = new URL(`/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`, base);
+    const endpoint = new URL(`/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${units}`+json.openweather_query+`&appid=${apiKey}`, base); /*INSERT LANGUAGE HERE, after "units"*/
 
     console.log('Weather API called.');
     const response = await fetch(endpoint);
@@ -12,7 +31,8 @@ async function getCurrentWeather(latitude, longitude, units, apiKey) {
 }
 
 function expired(lastUpdated, TTL) {
-    return (Date.now() - lastUpdated) / 60000 > TTL;
+    //return (Date.now() - lastUpdated) / 60000 > TTL;
+    return true;
 }
 
 async function getCachedWeather(coords, units, TTL, apiKey) {
