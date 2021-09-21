@@ -1,0 +1,42 @@
+{
+    "english": {
+        "new_tab":"New Tab",
+        "openweather_query": "&lang=en",
+        "image_captions": {
+            "snowing": "It's snowing out.",
+            "raining": "It's raining out.",
+            "cold": "It's cold out.",
+            "chilly": "It's chilly out.",
+            "humid": "It's humid out.",
+            "nice": "It's nice out.",
+            "hot_n_dry": "It's hot and dry out.",
+            "not_n_humid": "It's hot and humid out."
+        },
+        "and": " and ",
+        "by":"Picture by : ",
+        "update_moments":"Last updated moments ago.",
+        "update_before_time": "Last updated ",
+        "update_after_time_minutes": " minutes ago",
+        "update_after_time_hours": " hours ago"
+    },
+    "french": {
+        "new_tab":"Nouvel Onglet",
+        "openweather_query": "&lang=fr",
+        "image_captions": {
+            "snowing": "Il neige!",
+            "raining": "Il pleut!",
+            "cold": "C'est froid!",
+            "chilly": "C'est frais!",
+            "humid": "C'est humide!",
+            "nice": "Il fait beau dehors!",
+            "hot_n_dry": "C'est chaud et sec!",
+            "not_n_humid": "C'est chaud et humide!"
+        },
+        "and": " et ",
+        "by":"Image par : ",
+        "update_moments":"Mis à jour il y a quelques instants",
+        "update_before_time": "Mis à jour il y a ",
+        "update_after_time_minutes": " minutes.",
+        "update_after_time_hours": " heures."
+    }
+}
