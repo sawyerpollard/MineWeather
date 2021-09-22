@@ -31,8 +31,8 @@ async function getCurrentWeather(latitude, longitude, units, apiKey) {
 }
 
 function expired(lastUpdated, TTL) {
-    //return (Date.now() - lastUpdated) / 60000 > TTL;
-    return true;
+    return (Date.now() - lastUpdated) / 60000 > TTL;
+    //return true;
 }
 
 async function getCachedWeather(coords, units, TTL, apiKey) {
