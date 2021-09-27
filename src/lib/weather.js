@@ -4,7 +4,7 @@ import getStorageItem from './storageUtils.js';
 
 const { language } = await getStorageItem('language');
 
-var loc = JSON.parse($.getJSON({'url': "../localization/localization.json", 'async': false}).responseText);
+var loc = await fetch('../localization/localization.json').then(response => response.json());
 
 var tempJson = null;
 switch(language){
