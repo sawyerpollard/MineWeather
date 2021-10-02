@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import getStorageItem from './storageUtils.js';
 
 async function getCurrentWeather(latitude, longitude, units, lang, apiKey) {

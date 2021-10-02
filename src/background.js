@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 async function getCurrentWeather(latitude, longitude, units, lang, apiKey) {
     const base = 'https://api.openweathermap.org';
     const endpoint = new URL(`/data/2.5/onecall?lang=${lang}&lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`, base);

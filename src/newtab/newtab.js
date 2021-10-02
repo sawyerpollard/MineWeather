@@ -11,7 +11,6 @@ import imageObject from '../image_objects/Minecraft.js';
 
 import apiKey from '../apiKey.js';
 
-// eslint-disable-next-line max-len
 function createElements(imageCaption, imagePath, imageAuthor, imageLink, temperature, description, cacheLifetime) {
     const fullscreenImage = document.querySelector('#fullscreen-image');
     fullscreenImage.src = imagePath;
