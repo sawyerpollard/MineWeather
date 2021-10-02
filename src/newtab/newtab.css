@@ -6,7 +6,6 @@
 * {
     margin: 0;
     padding: 0;
-    line-height: 0;
     letter-spacing: 0.04em;
 }
 
@@ -43,6 +42,7 @@ body {
     padding: 0 0.25em;
     padding-top: 1.25em;
     padding-bottom: 0.5em;
+    line-height: 0;
 }
 
 #conditions {
@@ -52,6 +52,7 @@ body {
     padding: 0 0.25em;
     padding-top: 1.25em;
     padding-bottom: 0.5em;
+    line-height: 0;
 }
 
 #attribution {
@@ -65,6 +66,7 @@ body {
     padding: 0 0.25em;
     padding-top: 1.25em;
     padding-bottom: 0.5em;
+    line-height: 0;
 }
 
 #last-updated {
@@ -75,6 +77,7 @@ body {
     padding: 0.4em;
     font-size: 1em;
     color: rgba(255, 255, 255, 0.4);
+    line-height: 0;
 }
 
 #loading-pane {
