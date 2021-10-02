@@ -29,7 +29,11 @@ async function cacheWeather(coords, units, lang, apiKey) {
 chrome.runtime.onInstalled.addListener(async () => {
     console.log('Installing ...');
 
-    const units = 'imperial';
+    // Using navigator.language instead of chrome.getUILanguage() due to Chrome limitation
+    const lang = navigator.language.substring(0, 2);
+
+    const units = (lang === 'en') ? 'imperial' : 'metric';
+
     const TTL = 30;
 
     chrome.storage.local.set({ units });
@@ -43,7 +47,8 @@ chrome.runtime.onInstalled.addListener(async () => {
 chrome.alarms.onAlarm.addListener(async () => {
     console.log('Beginning background weather refresh ...');
 
-    const lang = chrome.i18n.getUILanguage().substring(0, 2);
+    // Using navigator.language instead of chrome.getUILanguage() due to Chrome limitation
+    const lang = navigator.language.substring(0, 2);
 
     const { units } = await getStorageItem('units');
 
