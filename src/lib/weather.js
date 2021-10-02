@@ -2,9 +2,9 @@
 
 import getStorageItem from './storageUtils.js';
 
-async function getCurrentWeather(latitude, longitude, units, apiKey) {
+async function getCurrentWeather(latitude, longitude, units, lang, apiKey) {
     const base = 'https://api.openweathermap.org';
-    const endpoint = new URL(`/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`, base);
+    const endpoint = new URL(`/data/2.5/onecall?lang=${lang}&lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`, base);
 
     console.log('Weather API called.');
     const response = await fetch(endpoint);
@@ -15,24 +15,26 @@ function expired(lastUpdated, TTL) {
     return (Date.now() - lastUpdated) / 60000 > TTL;
 }
 
-async function getCachedWeather(coords, units, TTL, apiKey) {
+async function getCachedWeather(coords, units, lang, TTL, apiKey) {
     const cachedWeatherObject = (await getStorageItem('weatherObject')).weatherObject;
 
     if (cachedWeatherObject !== undefined) {
-        const cachedUnits = cachedWeatherObject.units;
         const { lastUpdated } = cachedWeatherObject;
+        const cachedUnits = cachedWeatherObject.units;
+        const cachedLang = cachedWeatherObject.lang;
 
-        if (!expired(lastUpdated, TTL) && cachedUnits === units) {
+        if (!expired(lastUpdated, TTL) && cachedUnits === units && cachedLang === lang) {
             console.log('Weather cache hit.\n');
             return cachedWeatherObject;
         }
     }
 
-    const currentWeather = await getCurrentWeather(coords.latitude, coords.longitude, units, apiKey);
+    const currentWeather = await getCurrentWeather(coords.latitude, coords.longitude, units, lang, apiKey);
 
     const weatherObject = {
         weather: currentWeather,
         units,
+        lang,
         lastUpdated: Date.now(),
     };
 

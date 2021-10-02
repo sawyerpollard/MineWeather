@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 
-async function getCurrentWeather(latitude, longitude, units, apiKey) {
+async function getCurrentWeather(latitude, longitude, units, lang, apiKey) {
     const base = 'https://api.openweathermap.org';
-    const endpoint = new URL(`/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`, base);
+    const endpoint = new URL(`/data/2.5/onecall?lang=${lang}&lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`, base);
 
     console.log('Weather API called.');
     const response = await fetch(endpoint);
@@ -15,11 +15,13 @@ function getStorageItem(key) {
     });
 }
 
-async function cacheWeather(coords, units, apiKey) {
-    const currentWeather = await getCurrentWeather(coords.latitude, coords.longitude, units, apiKey);
+async function cacheWeather(coords, units, lang, apiKey) {
+    const currentWeather = await getCurrentWeather(coords.latitude, coords.longitude, units, lang, apiKey);
 
     const weatherObject = {
         weather: currentWeather,
+        units,
+        lang,
         lastUpdated: Date.now(),
     };
 
@@ -42,6 +44,9 @@ chrome.runtime.onInstalled.addListener(async () => {
 
 chrome.alarms.onAlarm.addListener(async () => {
     console.log('Beginning background weather refresh ...');
+
+    const lang = chrome.i18n.getUILanguage().substring(0, 2);
+
     const { units } = await getStorageItem('units');
 
     const { apiKey } = await getStorageItem('apiKey');
@@ -57,6 +62,6 @@ chrome.alarms.onAlarm.addListener(async () => {
     }
     const { coords } = position;
 
-    await cacheWeather(coords, units, apiKey);
+    await cacheWeather(coords, units, lang, apiKey);
     console.log('Finished background weather refresh.\n');
 });

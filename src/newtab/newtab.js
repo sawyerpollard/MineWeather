@@ -23,20 +23,20 @@ function createElements(imageCaption, imagePath, imageAuthor, imageLink, tempera
     descriptionElement.innerHTML = imageCaption;
 
     const weatherElement = document.querySelector('#conditions');
-    weatherElement.innerHTML = `${Math.round(temperature)}\u00B0 and ${description}`;
+    weatherElement.innerHTML = chrome.i18n.getMessage('conditionsDescription', [Math.round(temperature), description]);
 
     const attributionElement = document.querySelector('#attribution');
-    attributionElement.innerHTML = `By ${imageAuthor}`;
+    attributionElement.innerHTML = chrome.i18n.getMessage('imageCredit', imageAuthor);
     attributionElement.href = imageLink;
 
     const lastUpdatedElement = document.querySelector('#last-updated');
     let lastUpdatedText;
     if (cacheLifetime < 2) {
-        lastUpdatedText = 'Last updated moments ago.';
+        lastUpdatedText = chrome.i18n.getMessage('updatedMomentsAgo');
     } else if (cacheLifetime < 120) {
-        lastUpdatedText = `Last updated ${Math.floor(cacheLifetime)} minutes ago.`;
+        lastUpdatedText = chrome.i18n.getMessage('updatedMinutesAgo', Math.floor(cacheLifetime));
     } else {
-        lastUpdatedText = `Last updated ${Math.floor(cacheLifetime / 60)} hours ago.`;
+        lastUpdatedText = chrome.i18n.getMessage('updatedHoursAgo', Math.floor(cacheLifetime / 60));
     }
     lastUpdatedElement.innerHTML = lastUpdatedText;
 
@@ -46,11 +46,17 @@ function createElements(imageCaption, imagePath, imageAuthor, imageLink, tempera
 }
 
 async function loadNewTab() {
-    const { units } = await getStorageItem('units');
-    const { TTL } = await getStorageItem('TTL');
+    const title = document.querySelector('title');
+    title.innerHTML = chrome.i18n.getMessage('newTab');
 
     const helpText = document.querySelector('#help');
+    helpText.innerHTML = chrome.i18n.getMessage('locationHelp');
     const helpTimeout = setTimeout(() => { helpText.style.opacity = 1; }, 3000);
+
+    const lang = chrome.i18n.getUILanguage().substring(0, 2);
+
+    const { units } = await getStorageItem('units');
+    const { TTL } = await getStorageItem('TTL');
 
     const position = await Position.getCachedPosition(TTL);
     const { coords } = position;
@@ -63,7 +69,7 @@ async function loadNewTab() {
         chrome.storage.local.set({ apiKey });
     }
 
-    const { weather, lastUpdated } = await Weather.getCachedWeather(coords, units, TTL, apiKey);
+    const { weather, lastUpdated } = await Weather.getCachedWeather(coords, units, lang, TTL, apiKey);
 
     const descriptions = weather.current.weather.map((condition) => condition.description);
 

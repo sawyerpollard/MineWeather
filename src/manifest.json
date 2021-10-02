@@ -3,6 +3,7 @@
     "description": "Make your new tab page display a Minecraft scene based on the weather!",
     "version": "0.1.0",
     "manifest_version": 3,
+    "default_locale": "en",
     "permissions": [
         "geolocation",
         "storage",

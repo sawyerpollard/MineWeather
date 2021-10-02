@@ -21,6 +21,11 @@ async function updateUnitButtons(fahrenheitButton, celsiusButton) {
     }
 }
 
+document.querySelector('#popup-label').innerHTML = chrome.i18n.getMessage('popupLabel');
+document.querySelector('#unit-selector-label').innerHTML = chrome.i18n.getMessage('unitSelectorLabel');
+document.querySelector('#fahrenheit-selector-label').innerHTML = chrome.i18n.getMessage('fahrenheitSelectorLabel');
+document.querySelector('#celsius-selector-label').innerHTML = chrome.i18n.getMessage('celsiusSelectorLabel');
+
 const fahrenheitButton = document.querySelector('#fahrenheit');
 const celsiusButton = document.querySelector('#celsius');
 
