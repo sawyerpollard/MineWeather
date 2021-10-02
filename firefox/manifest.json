@@ -2,9 +2,9 @@
     "name": "Minecraft Weather New Tab",
     "description": "Make your new tab page display a Minecraft scene based on the weather!",
     "version": "0.1.0",
-    "manifest_version": 3,
-    "default_locale": "en",
+    "manifest_version": 2,
     "permissions": [
+        "https://api.openweathermap.org/",
         "geolocation",
         "storage",
         "alarms"
@@ -13,9 +13,9 @@
         "newtab": "/newtab/newtab.html"
     },
     "background": {
-        "service_worker": "background.js"
+        "scripts": ["background.js"]
     },
-    "action": {
+    "browser_action": {
         "default_popup": "/popup/popup.html",
         "default_icon": {
             "16": "/icons/icon16.png",
@@ -31,8 +31,5 @@
         "32": "/icons/icon32.png",
         "48": "/icons/icon48.png",
         "128": "/icons/icon128.png"
-    },
-    "host_permissions": [
-        "https://api.openweathermap.org/"
-    ]
+    }
 }

@@ -69,6 +69,7 @@ body {
     padding: 0.4em;
     font-size: 1em;
     color: rgba(255, 255, 255, 0.4);
+    line-height: 0;
 }
 
 #loading-pane {

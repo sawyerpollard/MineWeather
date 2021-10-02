@@ -1,0 +1,87 @@
+{
+    "rainingDescription": {
+        "message": "It's raining out."
+    },
+    "snowingDescription": {
+        "message": "It's snowing out."
+    },
+    "coldDescription": {
+        "message": "It's cold out."
+    },
+    "chillyDescription": {
+        "message": "It's chilly out."
+    },
+    "humidDescription": {
+        "message": "It's humid out."
+    },
+    "mediterraneanDescription": {
+        "message": "It's nice out."
+    },
+    "desertDescription": {
+        "message": "It's hot and dry out."
+    },
+    "tropicalDescription": {
+        "message": "It's hot and humid out."
+    },
+    "conditionsDescription": {
+        "message": "$TEMPERATURE$° and $DESCRIPTION$",
+        "placeholders": {
+            "temperature": {
+                "content": "$1",
+                "example": "30"
+            },
+            "description": {
+                "content": "$2",
+                "example": "few clouds"
+            }
+        }
+    },
+    "updatedMomentsAgo": {
+        "message": "Last updated moments ago."
+    },
+    "updatedMinutesAgo": {
+        "message": "Last updated $MINUTES$ minutes ago.",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "10"
+            }
+        }
+    },
+    "updatedHoursAgo": {
+        "message": "Last updated $HOURS$ hours ago.",
+        "placeholders": {
+            "hours": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "imageCredit": {
+        "message": "By $NAME$",
+        "placeholders": {
+            "name": {
+                "content": "$1",
+                "example": "Sawyer"
+            }
+        }
+    },
+    "locationHelp": {
+        "message": "Click the location icon on the right side of the search bar. Follow its instructions to enable weather access."
+    },
+    "newTab": {
+        "message": "New Tab"
+    },
+    "popupLabel": {
+        "message": "Settings"
+    },
+    "unitSelectorLabel": {
+        "message": "Temperature Unit"
+    },
+    "celsiusSelectorLabel": {
+        "message": "Celsius"
+    },
+    "fahrenheitSelectorLabel": {
+        "message": "Fahrenheit"
+    }
+}
