@@ -1,0 +1,87 @@
+﻿{
+    "rainingDescription": {
+        "message": "Sta piovendo."
+    },
+    "snowingDescription": {
+        "message": "Sta nevicando."
+    },
+    "coldDescription": {
+        "message": "Fa freddo fuori."
+    },
+    "chillyDescription": {
+        "message": "Fa fresco fuori."
+    },
+    "humidDescription": {
+        "message": "È umido fuori."
+    },
+    "mediterraneanDescription": {
+        "message": "C'è bel tempo."
+    },
+    "desertDescription": {
+        "message": "È caldo e secco fuori."
+    },
+    "tropicalDescription": {
+        "message": "È caldo e umido fuori."
+    },
+    "conditionsDescription": {
+        "message": "$TEMPERATURE$° e $DESCRIPTION$",
+        "placeholders": {
+            "temperature": {
+                "content": "$1",
+                "example": "30"
+            },
+            "description": {
+                "content": "$2",
+                "example": "few clouds"
+            }
+        }
+    },
+    "updatedMomentsAgo": {
+        "message": "Aggiornato poco fa."
+    },
+    "updatedMinutesAgo": {
+        "message": "Aggiornato $MINUTES$ minuti fa.",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "10"
+            }
+        }
+    },
+    "updatedHoursAgo": {
+        "message": "Aggiornato $HOURS$ ore fa.",
+        "placeholders": {
+            "hours": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "imageCredit": {
+        "message": "Da $NAME$",
+        "placeholders": {
+            "name": {
+                "content": "$1",
+                "example": "Sawyer"
+            }
+        }
+    },
+    "locationHelp": {
+        "message": "Clicca l'icona GPS a destra della barra di ricerca. Segui le istruzioni per concedere l'accesso al meteo."
+    },
+    "newTab": {
+        "message": "Nuova Scheda"
+    },
+    "popupLabel": {
+        "message": "Impostazioni"
+    },
+    "unitSelectorLabel": {
+        "message": "Unità di temperatura"
+    },
+    "celsiusSelectorLabel": {
+        "message": "Celsius"
+    },
+    "fahrenheitSelectorLabel": {
+        "message": "Fahrenheit"
+    }
+}
