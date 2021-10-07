@@ -1,0 +1,87 @@
+{
+    "rainingDescription": {
+        "message": "Il pleut!"
+    },
+    "snowingDescription": {
+        "message": "Il neige!"
+    },
+    "coldDescription": {
+        "message": "Il fait froid!"
+    },
+    "chillyDescription": {
+        "message": "Il fait frais!"
+    },
+    "humidDescription": {
+        "message": "C'est humide!"
+    },
+    "mediterraneanDescription": {
+        "message": "Il fait beau dehors!"
+    },
+    "desertDescription": {
+        "message": "Il fait chaud et sec!"
+    },
+    "tropicalDescription": {
+        "message": "Il fait chaud et humide"
+    },
+    "conditionsDescription": {
+        "message": "$TEMPERATURE$° et $DESCRIPTION$",
+        "placeholders": {
+            "temperature": {
+                "content": "$1",
+                "example": "30"
+            },
+            "description": {
+                "content": "$2",
+                "example": "quelques nuages"
+            }
+        }
+    },
+    "updatedMomentsAgo": {
+        "message": "Mis à jour il y a quelques instants"
+    },
+    "updatedMinutesAgo": {
+        "message": "Mis à jour il y a $MINUTES$ minutes.",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "10"
+            }
+        }
+    },
+    "updatedHoursAgo": {
+        "message": "Mis à jour il y a $HOURS$ heures.",
+        "placeholders": {
+            "hours": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "imageCredit": {
+        "message": "Par : $NAME$",
+        "placeholders": {
+            "name": {
+                "content": "$1",
+                "example": "Sawyer"
+            }
+        }
+    },
+    "locationHelp": {
+        "message": "Cliquez sur l'icône de localisation à droite de la barre de recherche. Suivez les instructions pour permettre l'accès aux informations météorologiques."
+    },
+    "newTab": {
+        "message": "Nouvel onglet"
+    },
+    "popupLabel": {
+        "message": "Paramètres"
+    },
+    "unitSelectorLabel": {
+        "message": "Unité de Température"
+    },
+    "celsiusSelectorLabel": {
+        "message": "Celsius"
+    },
+    "fahrenheitSelectorLabel": {
+        "message": "Fahrenheit"
+    }
+}
