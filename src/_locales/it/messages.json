@@ -1,4 +1,4 @@
-{
+ï»¿{
     "rainingDescription": {
         "message": "Sta piovendo."
     },
@@ -12,19 +12,19 @@
         "message": "Fa fresco fuori."
     },
     "humidDescription": {
-        "message": "È umido fuori."
+        "message": "Ãˆ umido fuori."
     },
     "mediterraneanDescription": {
-        "message": "C'è bel tempo."
+        "message": "C'Ã¨ bel tempo."
     },
     "desertDescription": {
-        "message": "È caldo e secco fuori."
+        "message": "Ãˆ caldo e secco fuori."
     },
     "tropicalDescription": {
-        "message": "È caldo e umido fuori."
+        "message": "Ãˆ caldo e umido fuori."
     },
     "conditionsDescription": {
-        "message": "$TEMPERATURE$° e $DESCRIPTION$",
+        "message": "$TEMPERATURE$Â° e $DESCRIPTION$",
         "placeholders": {
             "temperature": {
                 "content": "$1",
@@ -76,7 +76,7 @@
         "message": "Impostazioni"
     },
     "unitSelectorLabel": {
-        "message": "Unità di temperatura"
+        "message": "UnitÃ  di temperatura"
     },
     "celsiusSelectorLabel": {
         "message": "Celsius"
