@@ -1,7 +1,7 @@
 {
     "name": "Minecraft Weather New Tab",
     "description": "Make your new tab page display a Minecraft scene based on the weather!",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "manifest_version": 2,
     "permissions": [
         "https://api.openweathermap.org/",
