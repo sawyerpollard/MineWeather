@@ -1,6 +1,6 @@
 {
-    "name": "Minecraft Weather New Tab",
-    "description": "Make your new tab page display a Minecraft scene based on the weather!",
+    "name": "MineWeather",
+    "description": "Make your new tab page display a crafty scene based on the weather!",
     "version": "0.2.1",
     "manifest_version": 2,
     "permissions": [

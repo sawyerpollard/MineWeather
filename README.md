@@ -1,4 +1,4 @@
-# Minecraft Weather New Tab
+# MineWeather
 
 This Chrome Extension dynamically adjusts the New Tab page based on the current weather!
 
