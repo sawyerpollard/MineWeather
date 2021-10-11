@@ -32,11 +32,13 @@ chrome.runtime.onInstalled.addListener(async () => {
     // Using navigator.language instead of chrome.getUILanguage() due to Chrome limitation
     const lang = navigator.language.substring(0, 2);
 
-    const units = (lang === 'en') ? 'imperial' : 'metric';
+    if ((await getStorageItem('units')).units === undefined) {
+        const units = (lang === 'en') ? 'imperial' : 'metric';
+        chrome.storage.local.set({ units });
+    }
 
     const TTL = 30;
 
-    chrome.storage.local.set({ units });
     chrome.storage.local.set({ TTL });
 
     chrome.alarms.create({ periodInMinutes: TTL });
@@ -47,10 +49,17 @@ chrome.runtime.onInstalled.addListener(async () => {
 chrome.alarms.onAlarm.addListener(async () => {
     console.log('Beginning background weather refresh ...');
 
-    // Using navigator.language instead of chrome.getUILanguage() due to Chrome limitation
-    const lang = navigator.language.substring(0, 2);
+    const { lang } = await getStorageItem('lang');
+    if (lang === undefined) {
+        console.log('No language stored.\n');
+        return;
+    }
 
     const { units } = await getStorageItem('units');
+    if (lang === undefined) {
+        console.log('No units stored.\n');
+        return;
+    }
 
     const { apiKey } = await getStorageItem('apiKey');
     if (apiKey === undefined) {

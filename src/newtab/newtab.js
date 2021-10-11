@@ -53,6 +53,7 @@ async function loadNewTab() {
     const helpTimeout = setTimeout(() => { helpText.style.opacity = 1; }, 3000);
 
     const lang = chrome.i18n.getUILanguage().substring(0, 2);
+    chrome.storage.local.set({ lang });
 
     const { units } = await getStorageItem('units');
     const { TTL } = await getStorageItem('TTL');
