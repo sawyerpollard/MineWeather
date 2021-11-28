@@ -24,7 +24,7 @@
         "message": "Está calor e húmido."
     },
     "conditionsDescription": {
-        "message": "$TEMPERATURE$° and $DESCRIPTION$",
+        "message": "$TEMPERATURE$° e $DESCRIPTION$",
         "placeholders": {
             "temperature": {
                 "content": "$1",
@@ -58,7 +58,7 @@
         }
     },
     "imageCredit": {
-        "message": "By $NAME$",
+        "message": "Por $NAME$",
         "placeholders": {
             "name": {
                 "content": "$1",
