@@ -1,0 +1,87 @@
+{
+    "rainingDescription": {
+        "message": "Está a chuver."
+    },
+    "snowingDescription": {
+        "message": "Está a nevar."
+    },
+    "coldDescription": {
+        "message": "Está frio."
+    },
+    "chillyDescription": {
+        "message": "Está fresco."
+    },
+    "humidDescription": {
+        "message": "Está húmido."
+    },
+    "mediterraneanDescription": {
+        "message": "Está bom tempo."
+    },
+    "desertDescription": {
+        "message": "Está calor e seco."
+    },
+    "tropicalDescription": {
+        "message": "Está calor e húmido."
+    },
+    "conditionsDescription": {
+        "message": "$TEMPERATURE$° and $DESCRIPTION$",
+        "placeholders": {
+            "temperature": {
+                "content": "$1",
+                "example": "30"
+            },
+            "description": {
+                "content": "$2",
+                "example": "poucas nuvens"
+            }
+        }
+    },
+    "updatedMomentsAgo": {
+        "message": "Última atualização momentos atrás."
+    },
+    "updatedMinutesAgo": {
+        "message": "Última atualização $MINUTES$ minutos atrás.",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "10"
+            }
+        }
+    },
+    "updatedHoursAgo": {
+        "message": "Última atualização $HOURS$ horas atrás.",
+        "placeholders": {
+            "hours": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "imageCredit": {
+        "message": "By $NAME$",
+        "placeholders": {
+            "name": {
+                "content": "$1",
+                "example": "Sawyer"
+            }
+        }
+    },
+    "locationHelp": {
+        "message": "Clique no icone de localização no lado direito da barra de pesquisa. Siga as instruções para habilitar o acesso ao clima."
+    },
+    "newTab": {
+        "message": "Novo Separador"
+    },
+    "popupLabel": {
+        "message": "Configurações"
+    },
+    "unitSelectorLabel": {
+        "message": "Unidade de Temperatura"
+    },
+    "celsiusSelectorLabel": {
+        "message": "Celsius"
+    },
+    "fahrenheitSelectorLabel": {
+        "message": "Fahrenheit"
+    }
+}
