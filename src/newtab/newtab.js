@@ -19,13 +19,13 @@ function createElements(imageCaption, imagePath, imageAuthor, imageLink, tempera
     window.addEventListener('resize', () => handleResize(fullscreenImage));
 
     const descriptionElement = document.querySelector('#description');
-    descriptionElement.innerHTML = imageCaption;
+    descriptionElement.textContent = imageCaption;
 
     const weatherElement = document.querySelector('#conditions');
-    weatherElement.innerHTML = chrome.i18n.getMessage('conditionsDescription', [Math.round(temperature), description]);
+    weatherElement.textContent = chrome.i18n.getMessage('conditionsDescription', [Math.round(temperature), description]);
 
     const attributionElement = document.querySelector('#attribution');
-    attributionElement.innerHTML = chrome.i18n.getMessage('imageCredit', imageAuthor);
+    attributionElement.textContent = chrome.i18n.getMessage('imageCredit', imageAuthor);
     attributionElement.href = imageLink;
 
     const lastUpdatedElement = document.querySelector('#last-updated');
@@ -37,7 +37,7 @@ function createElements(imageCaption, imagePath, imageAuthor, imageLink, tempera
     } else {
         lastUpdatedText = chrome.i18n.getMessage('updatedHoursAgo', Math.floor(cacheLifetime / 60));
     }
-    lastUpdatedElement.innerHTML = lastUpdatedText;
+    lastUpdatedElement.textContent = lastUpdatedText;
 
     const loadingPane = document.querySelector('#loading-pane');
     loadingPane.style.opacity = 0;
@@ -46,10 +46,10 @@ function createElements(imageCaption, imagePath, imageAuthor, imageLink, tempera
 
 async function loadNewTab() {
     const title = document.querySelector('title');
-    title.innerHTML = chrome.i18n.getMessage('newTab');
+    title.textContent = chrome.i18n.getMessage('newTab');
 
     const helpText = document.querySelector('#help');
-    helpText.innerHTML = chrome.i18n.getMessage('locationHelp');
+    helpText.textContent = chrome.i18n.getMessage('locationHelp');
     const helpTimeout = setTimeout(() => { helpText.style.opacity = 1; }, 3000);
 
     const lang = chrome.i18n.getUILanguage().substring(0, 2);
