@@ -58,7 +58,7 @@
         }
     },
     "imageCredit": {
-        "message": "Por $NAME$",
+        "message": "$NAME$",
         "placeholders": {
             "name": {
                 "content": "$1",
