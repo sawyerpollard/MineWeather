@@ -59,6 +59,17 @@ function isRaining(weather) {
     return conditions.includes('Rain');
 }
 
+function getTimeOfDay(currentTime, sunriseTime, sunsetTime) {
+    const minutesFromSunrise = Math.abs((currentTime - sunriseTime) / 60);
+    const minutesFromSunset = Math.abs(currentTime - sunsetTime) / 60;
+
+    if (minutesFromSunset < 30 || minutesFromSunrise < 30) return 'sunset';
+
+    if (currentTime > sunsetTime || currentTime < sunriseTime) return 'night';
+
+    return 'day';
+}
+
 export {
-    getCurrentWeather, getCachedWeather, getTemperature, getDewPoint, isSnowing, isRaining,
+    getCurrentWeather, getCachedWeather, getTemperature, getDewPoint, isSnowing, isRaining, getTimeOfDay,
 };

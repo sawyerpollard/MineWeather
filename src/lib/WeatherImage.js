@@ -1,10 +1,10 @@
 export default class WeatherImage {
-    constructor(imageObject, condition) {
+    constructor(imageObject, condition, time) {
         const { basePath } = imageObject;
 
         const {
             name, caption, attribution, filename,
-        } = imageObject.conditions[condition][0];
+        } = imageObject.conditions[condition][time][0];
 
         const { author, link } = attribution;
 

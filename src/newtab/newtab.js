@@ -81,7 +81,9 @@ async function loadNewTab() {
         units,
     );
 
-    const weatherImage = new WeatherImage(imageObject, condition);
+    const time = Weather.getTimeOfDay(weather.current.dt, weather.current.sunrise, weather.current.sunset);
+
+    const weatherImage = new WeatherImage(imageObject, condition, time);
 
     createElements(
         weatherImage.caption, weatherImage.path,
