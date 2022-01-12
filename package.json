@@ -4,7 +4,8 @@
   "version": "0.3.0",
   "description": "",
   "scripts": {
-    "build": "webpack build"
+    "build:chrome": "webpack build --env target=chrome",
+    "build:firefox": "webpack build --env target=firefox"
 },
   "author": "Sawyer Pollard",
   "devDependencies": {

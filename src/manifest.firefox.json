@@ -2,21 +2,24 @@
     "name": "MineWeather",
     "description": "Make your new tab page display a crafty scene based on the weather!",
     "version": "0.3.0",
-    "manifest_version": 3,
-    "default_locale": "en",
+    "manifest_version": 2,
     "permissions": [
+        "https://api.openweathermap.org/",
         "geolocation",
         "storage",
         "alarms"
     ],
     "chrome_url_overrides": {
-        "newtab": "newtab.html"
+        "newtab": "/newtab.html"
+    },
+    "chrome_settings_overrides": {
+        "homepage": "/newtab.html"
     },
     "background": {
-        "service_worker": "background.js"
+        "scripts": ["/background.js"]
     },
-    "action": {
-        "default_popup": "popup.html",
+    "browser_action": {
+        "default_popup": "/popup/popup.html",
         "default_icon": {
             "16": "/icons/icon16.png",
             "24": "/icons/icon24.png",
@@ -31,8 +34,5 @@
         "32": "/icons/icon32.png",
         "48": "/icons/icon48.png",
         "128": "/icons/icon128.png"
-    },
-    "host_permissions": [
-        "https://api.openweathermap.org/"
-    ]
+    }
 }
