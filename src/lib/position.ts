@@ -1,21 +1,29 @@
-import getStorageItem from './storageUtils.js';
+import getStorageItem from './storageUtils';
 
-function getPosition(options) {
+interface Position {
+    coords: {
+        latitude: number,
+        longitude: number
+    },
+    lastUpdated: number
+}
+
+function getPosition(options?: PositionOptions): Promise<GeolocationPosition> {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, options);
     });
 }
 
-function expired(lastUpdated, TTL) {
+function expired(lastUpdated: number, TTL: number): boolean {
     return (Date.now() - lastUpdated) / 60000 > TTL;
 }
 
-async function cachePosition() {
+async function cachePosition(): Promise<Position> {
     console.log('Retrieving position ...');
     const { coords } = await getPosition();
     console.log('Retrieved position.');
 
-    const position = {
+    const position: Position = {
         coords: {
             latitude: coords.latitude,
             longitude: coords.longitude,
@@ -28,8 +36,8 @@ async function cachePosition() {
     return position;
 }
 
-async function getCachedPosition(TTL) {
-    const cachedPosition = (await getStorageItem('position')).position;
+async function getCachedPosition(TTL: number): Promise<Position> {
+    const cachedPosition = await getStorageItem('position') as Position;
 
     if (cachedPosition === undefined) {
         console.log('Initializing position cache ...');
@@ -48,4 +56,4 @@ async function getCachedPosition(TTL) {
     return cachedPosition;
 }
 
-export { getPosition, cachePosition, getCachedPosition };
+export { getPosition, cachePosition, getCachedPosition, Position };

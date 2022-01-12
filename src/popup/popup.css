@@ -1,3 +1,5 @@
-body {
-    width: 250px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS below */

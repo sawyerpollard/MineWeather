@@ -1,22 +1,11 @@
-async function getCurrentWeather(latitude, longitude, units, lang, apiKey) {
-    const base = 'https://api.openweathermap.org';
-    const endpoint = new URL(`/data/2.5/onecall?lang=${lang}&lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`, base);
+import { getCurrentWeather, Unit, WeatherObject } from './lib/weather';
+import { Position } from './lib/position';
+import getStorageItem from './lib/storageUtils';
 
-    console.log('Weather API called.');
-    const response = await fetch(endpoint);
-    return response.json();
-}
+async function cacheWeather(latitude: number, longitude: number, units: Unit, lang: string, apiKey: string) {
+    const currentWeather = await getCurrentWeather(latitude, longitude, units, lang, apiKey);
 
-function getStorageItem(key) {
-    return new Promise((resolve) => {
-        chrome.storage.local.get(key, resolve);
-    });
-}
-
-async function cacheWeather(coords, units, lang, apiKey) {
-    const currentWeather = await getCurrentWeather(coords.latitude, coords.longitude, units, lang, apiKey);
-
-    const weatherObject = {
+    const weatherObject: WeatherObject = {
         weather: currentWeather,
         units,
         lang,
@@ -32,7 +21,7 @@ chrome.runtime.onInstalled.addListener(async () => {
     // Using navigator.language instead of chrome.getUILanguage() due to Chrome limitation
     const lang = navigator.language.substring(0, 2);
 
-    if ((await getStorageItem('units')).units === undefined) {
+    if (await getStorageItem('units') as Unit === undefined) {
         const units = (lang === 'en') ? 'imperial' : 'metric';
         chrome.storage.local.set({ units });
     }
@@ -49,31 +38,31 @@ chrome.runtime.onInstalled.addListener(async () => {
 chrome.alarms.onAlarm.addListener(async () => {
     console.log('Beginning background weather refresh ...');
 
-    const { lang } = await getStorageItem('lang');
+    const lang = await getStorageItem('lang') as string;
     if (lang === undefined) {
         console.log('No language stored.\n');
         return;
     }
 
-    const { units } = await getStorageItem('units');
+    const units = await getStorageItem('units') as Unit;
     if (lang === undefined) {
         console.log('No units stored.\n');
         return;
     }
 
-    const { apiKey } = await getStorageItem('apiKey');
+    const apiKey = await getStorageItem('apiKey') as string;
     if (apiKey === undefined) {
         console.log('No API key stored.\n');
         return;
     }
 
-    const { position } = await getStorageItem('position');
+    const position = await getStorageItem('position') as Position;
     if (position === undefined) {
         console.log('No position stored.\n');
         return;
     }
     const { coords } = position;
 
-    await cacheWeather(coords, units, lang, apiKey);
+    await cacheWeather(coords.latitude, coords.longitude, units, lang, apiKey);
     console.log('Finished background weather refresh.\n');
 });

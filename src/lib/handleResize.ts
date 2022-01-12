@@ -1,4 +1,4 @@
-export default function handleResize(fullscreenImage) {
+export default function handleResize(fullscreenImage: HTMLImageElement): void {
     const image = fullscreenImage;
 
     const aspectRatio = image.naturalWidth / image.naturalHeight;

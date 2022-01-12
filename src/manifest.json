@@ -10,13 +10,13 @@
         "alarms"
     ],
     "chrome_url_overrides": {
-        "newtab": "/newtab/newtab.html"
+        "newtab": "newtab.html"
     },
     "background": {
         "service_worker": "background.js"
     },
     "action": {
-        "default_popup": "/popup/popup.html",
+        "default_popup": "popup.html",
         "default_icon": {
             "16": "/icons/icon16.png",
             "24": "/icons/icon24.png",

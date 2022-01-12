@@ -2,4 +2,6 @@
 node_modules/
 package-lock.json
 apiKey.js
+apiKey.ts
 src.zip
+dist/

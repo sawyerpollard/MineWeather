@@ -1,9 +1,13 @@
-export default {
+import { Theme } from '../lib/theme';
+import { Condition } from '../lib/condition';
+import { Time } from '../lib/time';
+
+const minecraft: Theme = {
     name: 'Minecraft',
     basePath: '../images/',
     conditions: {
-        snowing: {
-            day: [
+        [Condition.SNOWING]: {
+            [Time.DAY]: [
                 {
                     name: 'Snowing',
                     caption: chrome.i18n.getMessage('snowingDescription'),
@@ -11,10 +15,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'snowing/day.jpg',
+                    filePath: 'snowing/day.jpg',
                 },
             ],
-            sunset: [
+            [Time.TWILIGHT]: [
                 {
                     name: 'Snowing',
                     caption: chrome.i18n.getMessage('snowingDescription'),
@@ -22,10 +26,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'snowing/sunset.jpg',
+                    filePath: 'snowing/sunset.jpg',
                 },
             ],
-            night: [
+            [Time.NIGHT]: [
                 {
                     name: 'Snowing',
                     caption: chrome.i18n.getMessage('snowingDescription'),
@@ -33,12 +37,12 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'snowing/night.jpg',
+                    filePath: 'snowing/night.jpg',
                 },
             ],
         },
-        raining: {
-            day: [
+        [Condition.RAINING]: {
+            [Time.DAY]: [
                 {
                     name: 'Raining',
                     caption: chrome.i18n.getMessage('rainingDescription'),
@@ -46,10 +50,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'raining/day.jpg',
+                    filePath: 'raining/day.jpg',
                 },
             ],
-            sunset: [
+            [Time.TWILIGHT]: [
                 {
                     name: 'Raining',
                     caption: chrome.i18n.getMessage('rainingDescription'),
@@ -57,10 +61,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'raining/sunset.jpg',
+                    filePath: 'raining/sunset.jpg',
                 },
             ],
-            night: [
+            [Time.NIGHT]: [
                 {
                     name: 'Raining',
                     caption: chrome.i18n.getMessage('rainingDescription'),
@@ -68,12 +72,12 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'snowing/night.jpg',
+                    filePath: 'snowing/night.jpg',
                 },
             ],
         },
-        cold: {
-            day: [
+        [Condition.COLD]: {
+            [Time.DAY]: [
                 {
                     name: 'Cold',
                     caption: chrome.i18n.getMessage('coldDescription'),
@@ -81,10 +85,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'cold/day.jpg',
+                    filePath: 'cold/day.jpg',
                 },
             ],
-            sunset: [
+            [Time.TWILIGHT]: [
                 {
                     name: 'Cold',
                     caption: chrome.i18n.getMessage('coldDescription'),
@@ -92,10 +96,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'cold/sunset.jpg',
+                    filePath: 'cold/sunset.jpg',
                 },
             ],
-            night: [
+            [Time.NIGHT]: [
                 {
                     name: 'Cold',
                     caption: chrome.i18n.getMessage('coldDescription'),
@@ -103,12 +107,12 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'cold/night.jpg',
+                    filePath: 'cold/night.jpg',
                 },
             ],
         },
-        chilly: {
-            day: [
+        [Condition.CHILLY]: {
+            [Time.DAY]: [
                 {
                     name: 'Chilly',
                     caption: chrome.i18n.getMessage('chillyDescription'),
@@ -116,10 +120,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'chilly/day.jpg',
+                    filePath: 'chilly/day.jpg',
                 },
             ],
-            sunset: [
+            [Time.TWILIGHT]: [
                 {
                     name: 'Chilly',
                     caption: chrome.i18n.getMessage('chillyDescription'),
@@ -127,10 +131,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'chilly/sunset.jpg',
+                    filePath: 'chilly/sunset.jpg',
                 },
             ],
-            night: [
+            [Time.NIGHT]: [
                 {
                     name: 'Chilly',
                     caption: chrome.i18n.getMessage('chillyDescription'),
@@ -138,12 +142,12 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'chilly/night.jpg',
+                    filePath: 'chilly/night.jpg',
                 },
             ],
         },
-        humid: {
-            day: [
+        [Condition.HUMID]: {
+            [Time.DAY]: [
                 {
                     name: 'Humid',
                     caption: chrome.i18n.getMessage('humidDescription'),
@@ -151,10 +155,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'humid/day.jpg',
+                    filePath: 'humid/day.jpg',
                 },
             ],
-            sunset: [
+            [Time.TWILIGHT]: [
                 {
                     name: 'Humid',
                     caption: chrome.i18n.getMessage('humidDescription'),
@@ -162,10 +166,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'humid/sunset.jpg',
+                    filePath: 'humid/sunset.jpg',
                 },
             ],
-            night: [
+            [Time.NIGHT]: [
                 {
                     name: 'Humid',
                     caption: chrome.i18n.getMessage('humidDescription'),
@@ -173,12 +177,12 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'humid/night.jpg',
+                    filePath: 'humid/night.jpg',
                 },
             ],
         },
-        mediterranean: {
-            day: [
+        [Condition.MEDITERRANEAN]: {
+            [Time.DAY]: [
                 {
                     name: 'Mediterranean',
                     caption: chrome.i18n.getMessage('mediterraneanDescription'),
@@ -186,10 +190,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'mediterranean/day.jpg',
+                    filePath: 'mediterranean/day.jpg',
                 },
             ],
-            sunset: [
+            [Time.TWILIGHT]: [
                 {
                     name: 'Mediterranean',
                     caption: chrome.i18n.getMessage('mediterraneanDescription'),
@@ -197,10 +201,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'mediterranean/sunset.jpg',
+                    filePath: 'mediterranean/sunset.jpg',
                 },
             ],
-            night: [
+            [Time.NIGHT]: [
                 {
                     name: 'Mediterranean',
                     caption: chrome.i18n.getMessage('mediterraneanDescription'),
@@ -208,12 +212,12 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'mediterranean/night.jpg',
+                    filePath: 'mediterranean/night.jpg',
                 },
             ],
         },
-        desert: {
-            day: [
+        [Condition.DESERT]: {
+            [Time.DAY]: [
                 {
                     name: 'Desert',
                     caption: chrome.i18n.getMessage('desertDescription'),
@@ -221,10 +225,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'desert/day.jpg',
+                    filePath: 'desert/day.jpg',
                 },
             ],
-            sunset: [
+            [Time.TWILIGHT]: [
                 {
                     name: 'Desert',
                     caption: chrome.i18n.getMessage('desertDescription'),
@@ -232,10 +236,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'desert/sunset.jpg',
+                    filePath: 'desert/sunset.jpg',
                 },
             ],
-            night: [
+            [Time.NIGHT]: [
                 {
                     name: 'Desert',
                     caption: chrome.i18n.getMessage('desertDescription'),
@@ -243,12 +247,12 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'desert/night.jpg',
+                    filePath: 'desert/night.jpg',
                 },
             ],
         },
-        tropical: {
-            day: [
+        [Condition.TROPICAL]: {
+            [Time.DAY]: [
                 {
                     name: 'Tropical',
                     caption: chrome.i18n.getMessage('tropicalDescription'),
@@ -256,10 +260,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'tropical/day.jpg',
+                    filePath: 'tropical/day.jpg',
                 },
             ],
-            sunset: [
+            [Time.TWILIGHT]: [
                 {
                     name: 'Tropical',
                     caption: chrome.i18n.getMessage('tropicalDescription'),
@@ -267,10 +271,10 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'tropical/sunset.jpg',
+                    filePath: 'tropical/sunset.jpg',
                 },
             ],
-            night: [
+            [Time.NIGHT]: [
                 {
                     name: 'Tropical',
                     caption: chrome.i18n.getMessage('tropicalDescription'),
@@ -278,9 +282,46 @@ export default {
                         author: 'James Stone and Sonic Ether',
                         link: '#',
                     },
-                    filename: 'tropical/night.jpg',
+                    filePath: 'tropical/night.jpg',
+                },
+            ],
+        },
+        [Condition.UNKNOWN]: {
+            [Time.DAY]: [
+                {
+                    name: 'Mediterranean',
+                    caption: chrome.i18n.getMessage('mediterraneanDescription'),
+                    attribution: {
+                        author: 'James Stone and Sonic Ether',
+                        link: '#',
+                    },
+                    filePath: 'mediterranean/day.jpg',
+                },
+            ],
+            [Time.TWILIGHT]: [
+                {
+                    name: 'Mediterranean',
+                    caption: chrome.i18n.getMessage('mediterraneanDescription'),
+                    attribution: {
+                        author: 'James Stone and Sonic Ether',
+                        link: '#',
+                    },
+                    filePath: 'mediterranean/sunset.jpg',
+                },
+            ],
+            [Time.NIGHT]: [
+                {
+                    name: 'Mediterranean',
+                    caption: chrome.i18n.getMessage('mediterraneanDescription'),
+                    attribution: {
+                        author: 'James Stone and Sonic Ether',
+                        link: '#',
+                    },
+                    filePath: 'mediterranean/night.jpg',
                 },
             ],
         },
     },
 };
+
+export default minecraft;
