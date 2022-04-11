@@ -1,14 +1,8 @@
-/* eslint-disable no-param-reassign */
-
 import { Unit } from '../lib/weather';
 
-import './popup.css';
+import getStorageItem from '../lib/storageUtils';
 
-function getStorageItem(key: string) {
-    return new Promise((resolve) => {
-        chrome.storage.local.get(key, resolve);
-    });
-}
+import './popup.css';
 
 async function updateUnitButtons(fahrenheitButton: HTMLInputElement, celsiusButton: HTMLInputElement) {
     const units = await getStorageItem('units') as Unit;
