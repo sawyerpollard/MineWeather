@@ -1,7 +1,7 @@
 {
     "name": "MineWeather",
     "description": "Make your new tab page display a crafty scene based on the weather!",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "manifest_version": 3,
     "default_locale": "en",
     "permissions": [
