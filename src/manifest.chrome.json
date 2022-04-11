@@ -33,6 +33,6 @@
         "128": "/icons/icon128.png"
     },
     "host_permissions": [
-        "https://api.openweathermap.org/"
+        "https://pro.openweathermap.org/"
     ]
 }

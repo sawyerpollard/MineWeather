@@ -5,7 +5,7 @@
     "manifest_version": 2,
     "default_locale": "en",
     "permissions": [
-        "https://api.openweathermap.org/",
+        "https://pro.openweathermap.org/",
         "geolocation",
         "storage",
         "alarms"
