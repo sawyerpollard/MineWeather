@@ -2,7 +2,7 @@
 
 This Chrome Extension dynamically adjusts the New Tab page based on the current weather!
 
-[![Available in the Chrome Web Store](https://user-images.githubusercontent.com/19192015/132961666-64cf372a-ad35-47ad-b378-4de4b4a07d6d.png)](https://chrome.google.com/webstore/detail/minecraft-weather-new-tab/hginofjkoglolmiajalmgomicjcpecbl)
+[![Available in the Chrome Web Store](https://user-images.githubusercontent.com/19192015/132961666-64cf372a-ad35-47ad-b378-4de4b4a07d6d.png)](https://chrome.google.com/webstore/detail/mineweather/gklgaaagldobfcacmhhbnbgofohfgneb)
 
 **Displays a scene from the video game Minecraft depending on local weather conditions.**  
 **Provides temperature and other weather information with an emphasis on aesthetics.**
