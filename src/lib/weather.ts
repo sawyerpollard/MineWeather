@@ -24,7 +24,7 @@ export interface WeatherObject {
 }
 
 export async function getCurrentWeather(latitude: number, longitude: number, units: Unit, lang: string, apiKey: string): Promise<WeatherResponse> {
-    const base = 'https://api.openweathermap.org';
+    const base = 'https://pro.openweathermap.org';
     const endpoint= new URL(`/data/2.5/onecall?lang=${lang}&lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`, base);
 
     console.log('Weather API called.');
