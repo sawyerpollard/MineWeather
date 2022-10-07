@@ -6,6 +6,7 @@ This Chrome Extension dynamically adjusts the New Tab page based on the current 
 
 **Displays a scene from the video game Minecraft depending on local weather conditions.**  
 **Provides temperature and other weather information with an emphasis on aesthetics.**
+**Weather data is provided by [OpenWeather](https://openweathermap.org/).**
 
 ![Example of new tab page](https://user-images.githubusercontent.com/19192015/132961674-ee25a836-16df-4190-a855-0110451fc43d.png)
 
