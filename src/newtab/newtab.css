@@ -1,11 +1,12 @@
 @font-face {
     font-family: 'Minecraftia';
-    src: url('../fonts/Minecraftia-Regular.ttf');
+    src: url('../fonts/Minecraftia.ttf');
 }
 
 * {
     margin: 0;
     padding: 0;
+    line-height: 1.2em;
     letter-spacing: 0.04em;
 }
 
@@ -39,20 +40,14 @@ body {
     display: inline-block;
     font-size: 3.5em;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 0 0.25em;
-    padding-top: 1.25em;
-    padding-bottom: 0.5em;
-    line-height: 0;
+    padding: 0.35em 0.25em;
 }
 
 #conditions {
     display: inline-block;
     font-size: 2.5em;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 0 0.25em;
-    padding-top: 1.25em;
-    padding-bottom: 0.5em;
-    line-height: 0;
+    padding: 0.35em 0.25em;
 }
 
 #attribution {
@@ -63,10 +58,7 @@ body {
     font-size: 1em;
     color: rgba(255, 255, 255, 0.4);
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 0 0.25em;
-    padding-top: 1.25em;
-    padding-bottom: 0.5em;
-    line-height: 0;
+    padding: 0.35em 0.25em;
 }
 
 #last-updated {
@@ -131,7 +123,5 @@ body {
 
 #help p {
     margin-bottom: 1em;
-    padding: 0 0.25em;
-    padding-top: 1.25em;
-    padding-bottom: 0.5em;
+    padding: 0.35em 0.25em;
 }
