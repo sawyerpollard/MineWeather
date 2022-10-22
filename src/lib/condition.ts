@@ -1,3 +1,4 @@
+import * as Weather from '../lib/weather';
 import { Unit } from './weather';
 
 export enum Condition {
@@ -12,10 +13,10 @@ export enum Condition {
     UNKNOWN
 }
 
-export function getCondition(temperature: number, dewPoint: number, isSnowing: boolean, isRaining: boolean, units: Unit): Condition {
-    if (units === 'metric') {
-        temperature = celsiusToImperial(temperature);
-        dewPoint = celsiusToImperial(dewPoint);
+export function getCondition(temperature: number, dewPoint: number, isSnowing: boolean, isRaining: boolean, unit: Unit): Condition {
+    if (unit === 'metric') {
+        temperature = Weather.celsiusToFahrenheit(temperature);
+        dewPoint = Weather.celsiusToFahrenheit(dewPoint);
     }
 
     if (isSnowing) return Condition.SNOWING;
@@ -37,9 +38,4 @@ export function getCondition(temperature: number, dewPoint: number, isSnowing: b
     }
 
     return Condition.UNKNOWN;
-}
-
-function celsiusToImperial(c: number): number {
-    const f = c * (9 / 5) + 32;
-    return f;
 }

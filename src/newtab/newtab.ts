@@ -11,8 +11,6 @@ import getStorageItem from '../lib/storageUtils';
 
 import theme from '../themes/minecraft';
 
-import apiKey from '../apiKey';
-
 import './newtab.css';
 
 function createElements(imageCaption: string, imagePath: string, imageAuthor: string, imageLink: string, temperature: number, description: string, cacheLifetime: number) {
@@ -70,10 +68,7 @@ async function loadNewTab() {
 
 
     // Retrieve necessary data
-    const lang = chrome.i18n.getUILanguage().substring(0, 2);
-    chrome.storage.local.set({ lang });
-
-    const units = await getStorageItem('units') as Unit;
+    const unit = await getStorageItem('unit') as Unit;
     const TTL = await getStorageItem('TTL') as number;
 
     const position = await Position.getCachedPosition(TTL);
@@ -84,29 +79,23 @@ async function loadNewTab() {
     clearTimeout(helpTimeout);
     helpText.style.opacity = '0';
     setTimeout(() => helpText.remove(), 1000);
-    
-
-    // Store API key if not already
-    if (await getStorageItem('apiKey') as string === undefined) {
-        chrome.storage.local.set({ apiKey });
-    }
 
 
-    // Retrieve current weather and get descriptions
-    const { weather, lastUpdated } = await Weather.getCachedWeather(coords.latitude, coords.longitude, units, lang, TTL, apiKey);
-    const descriptions = weather.current.weather.map((condition) => condition.description);
+    // Retrieve current weather and get description
+    const weather = await Weather.getCachedWeather(coords.latitude, coords.longitude, TTL);
+    const description = Weather.weatherCodeString(weather.weatherCode);
 
 
     // Get weather image
     const condition = getCondition(
-        Weather.getTemperature(weather),
-        Weather.getDewPoint(weather),
+        Weather.getTemperature(weather, unit),
+        Weather.getDewPoint(weather, unit),
         Weather.isSnowing(weather),
         Weather.isRaining(weather),
-        units,
+        unit,
     );
 
-    const time = getTime(weather.current.dt, weather.current.sunrise, weather.current.sunset);
+    const time = getTime(weather.timestamp, weather.sunrise, weather.sunset);
     const weatherImage = getWeatherImage(theme, condition, time);
 
 
@@ -114,8 +103,8 @@ async function loadNewTab() {
     createElements(
         weatherImage.caption, theme.basePath + weatherImage.filePath,
         weatherImage.attribution.author, weatherImage.attribution.link,
-        Weather.getTemperature(weather), descriptions[0],
-        (Date.now() - lastUpdated) / 60000,
+        Weather.getTemperature(weather, unit), description,
+        (Date.now() / 1000 - weather.timestamp) / 60000,
     );
 }
 

@@ -1,18 +1,11 @@
-import { getCurrentWeather, Unit, WeatherObject } from './lib/weather';
+import { getCurrentWeather, Unit } from './lib/weather';
 import { Position } from './lib/position';
 import getStorageItem from './lib/storageUtils';
 
-async function cacheWeather(latitude: number, longitude: number, units: Unit, lang: string, apiKey: string) {
-    const currentWeather = await getCurrentWeather(latitude, longitude, units, lang, apiKey);
+async function cacheWeather(latitude: number, longitude: number) {
+    const weatherData = await getCurrentWeather(latitude, longitude);
 
-    const weatherObject: WeatherObject = {
-        weather: currentWeather,
-        units,
-        lang,
-        lastUpdated: Date.now(),
-    };
-
-    chrome.storage.local.set({ weatherObject });
+    chrome.storage.local.set({ weatherData });
 }
 
 chrome.runtime.onInstalled.addListener(async () => {
@@ -21,12 +14,12 @@ chrome.runtime.onInstalled.addListener(async () => {
     // Using navigator.language instead of chrome.getUILanguage() due to Chrome limitation
     const lang = navigator.language.substring(0, 2);
 
-    if (await getStorageItem('units') as Unit === undefined) {
-        const units = (lang === 'en') ? 'imperial' : 'metric';
-        chrome.storage.local.set({ units });
+    if (await getStorageItem('unit') as Unit === undefined) {
+        const unit = (lang === 'en') ? 'imperial' : 'metric';
+        chrome.storage.local.set({ unit });
     }
 
-    const TTL = 30;
+    const TTL = 60;
 
     chrome.storage.local.set({ TTL });
 
@@ -38,24 +31,6 @@ chrome.runtime.onInstalled.addListener(async () => {
 chrome.alarms.onAlarm.addListener(async () => {
     console.log('Beginning background weather refresh ...');
 
-    const lang = await getStorageItem('lang') as string;
-    if (lang === undefined) {
-        console.log('No language stored.\n');
-        return;
-    }
-
-    const units = await getStorageItem('units') as Unit;
-    if (lang === undefined) {
-        console.log('No units stored.\n');
-        return;
-    }
-
-    const apiKey = await getStorageItem('apiKey') as string;
-    if (apiKey === undefined) {
-        console.log('No API key stored.\n');
-        return;
-    }
-
     const position = await getStorageItem('position') as Position;
     if (position === undefined) {
         console.log('No position stored.\n');
@@ -63,6 +38,6 @@ chrome.alarms.onAlarm.addListener(async () => {
     }
     const { coords } = position;
 
-    await cacheWeather(coords.latitude, coords.longitude, units, lang, apiKey);
+    await cacheWeather(coords.latitude, coords.longitude);
     console.log('Finished background weather refresh.\n');
 });

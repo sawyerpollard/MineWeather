@@ -5,9 +5,9 @@ import getStorageItem from '../lib/storageUtils';
 import './popup.css';
 
 async function updateUnitButtons(fahrenheitButton: HTMLInputElement, celsiusButton: HTMLInputElement) {
-    const units = await getStorageItem('units') as Unit;
+    const unit = await getStorageItem('unit') as Unit;
 
-    switch (units) {
+    switch (unit) {
     case 'imperial':
         fahrenheitButton.checked = true;
         break;
@@ -37,9 +37,9 @@ const celsiusButton = document.querySelector('#celsius') as HTMLInputElement;
 updateUnitButtons(fahrenheitButton, celsiusButton);
 
 fahrenheitButton.addEventListener('click', () => {
-    chrome.storage.local.set({ units: 'imperial' });
+    chrome.storage.local.set({ unit: 'imperial' });
 });
 
 celsiusButton.addEventListener('click', () => {
-    chrome.storage.local.set({ units: 'metric' });
+    chrome.storage.local.set({ unit: 'metric' });
 });
