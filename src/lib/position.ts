@@ -5,7 +5,7 @@ interface Position {
         latitude: number,
         longitude: number
     },
-    lastUpdated: number
+    timestamp: number
 }
 
 function getPosition(options?: PositionOptions): Promise<GeolocationPosition> {
@@ -15,7 +15,7 @@ function getPosition(options?: PositionOptions): Promise<GeolocationPosition> {
 }
 
 function expired(lastUpdated: number, TTL: number): boolean {
-    return (Date.now() - lastUpdated) / 60000 > TTL;
+    return (Date.now() / 1000 - lastUpdated) / 60 > TTL;
 }
 
 async function cachePosition(): Promise<Position> {
@@ -28,7 +28,7 @@ async function cachePosition(): Promise<Position> {
             latitude: coords.latitude,
             longitude: coords.longitude,
         },
-        lastUpdated: Date.now(),
+        timestamp: Date.now() / 1000,
     };
 
     chrome.storage.local.set({ position });
@@ -45,9 +45,9 @@ async function getCachedPosition(TTL: number): Promise<Position> {
         return position;
     }
 
-    const { lastUpdated } = cachedPosition;
+    const { timestamp } = cachedPosition;
 
-    if (expired(lastUpdated, TTL)) {
+    if (expired(timestamp, TTL)) {
         console.log('Renewing position cache.');
         cachePosition();
     }

@@ -1,7 +1,7 @@
 {
   "name": "mineweather",
   "private": true,
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "",
   "scripts": {
     "build:chrome": "webpack build --env target=chrome",

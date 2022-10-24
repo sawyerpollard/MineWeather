@@ -31,14 +31,14 @@ export async function getCurrentWeather(latitude: number, longitude: number): Pr
         sunrise: weather['daily']['sunrise'][0],
         sunset: weather['daily']['sunset'][0],
         unit: 'metric',
-        timestamp: Date.now() / 1000,
+        timestamp: currentTime,
     };
     
     return weatherData;
 }
 
 function expired(lastUpdated: number, TTL: number): boolean {
-    return (Date.now() / 1000 - lastUpdated) / 60000 > TTL;
+    return (Date.now() / 1000 - lastUpdated) / 60 > TTL;
 }
 
 export async function getCachedWeather(latitude: number, longitude: number, TTL: number): Promise<WeatherData> {

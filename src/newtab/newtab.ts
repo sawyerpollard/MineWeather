@@ -104,7 +104,7 @@ async function loadNewTab() {
         weatherImage.caption, theme.basePath + weatherImage.filePath,
         weatherImage.attribution.author, weatherImage.attribution.link,
         Weather.getTemperature(weather, unit), description,
-        (Date.now() / 1000 - weather.timestamp) / 60000,
+        (Date.now() / 1000 - weather.timestamp) / 60,
     );
 }
 

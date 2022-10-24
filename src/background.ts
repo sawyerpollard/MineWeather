@@ -19,7 +19,7 @@ chrome.runtime.onInstalled.addListener(async () => {
         chrome.storage.local.set({ unit });
     }
 
-    const TTL = 60;
+    const TTL = 30;
 
     chrome.storage.local.set({ TTL });
 
