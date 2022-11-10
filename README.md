@@ -30,4 +30,9 @@ This Chrome Extension dynamically adjusts the New Tab page based on the current 
 ### Extension popup designed with Tailwind:
 ![Extension popup](https://user-images.githubusercontent.com/19192015/132961679-eeb3ad7c-adc8-44f0-97f4-6c2bafcd5f8f.png)
 
-*Included images are screenshots of Minecraft. Attributions are located under the Minecraft.js file.*
+## Build Instructions
+1. Install latest versions of Node.js and npm (v16 and v8 respectively at the time of testing)
+2. Clone and enter the repository
+3. Run `npm install`
+4. Run `npm run build:chrome` for Chrome or `npm run build:firefox` for Firefox
+5. Load the unpacked extension into Chrome or Firefox from the `dist` folder
